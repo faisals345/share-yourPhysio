@@ -8,7 +8,7 @@ var axios = require('axios');
 app.use(cors());
 app.use(express.json()) 
 
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+// app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 const PORT = process.env.PORT || 5000;
 
@@ -18,7 +18,7 @@ app.post('/api', (req,res)=> { //post method
 
   var config = {
     method: 'get',
-    url: `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${req.body.origin}&destinations=${req.body.destination}&key=AIzaSyCwHEAZV4QYnEiqi22RJwvfO9KcHa1arZI`,
+    url: `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${req.body.origin}&destinations=${req.body.destination}&key=${process.env.API_KEY}`,
     headers: { }
   };
 
@@ -34,7 +34,7 @@ app.post('/api', (req,res)=> { //post method
 
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  res.json({"message":"How are you"});
 });
 
 
