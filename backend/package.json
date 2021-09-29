@@ -7,6 +7,9 @@
     "start": "node server/index.js",
     "build": "cd client && npm install && npm run build"
   },
+  "engines": {
+    "node": " 14.16.0"
+  },
   "author": "Faisal Salman",
   "license": "ISC",
   "dependencies": {
@@ -14,4 +17,6 @@
     "cors": "^2.8.5",
     "express": "^4.17.1"
   }
+ 
+  
 }
